@@ -101,7 +101,8 @@ class BroadcastManager implements FactoryContract
      */
     public function event($event = null)
     {
-        return new PendingBroadcast($this->app->make('events'), $event);
+        $pendingBroadcast = new PendingBroadcast($this->app->make('events'), $event);
+        return tap($pendingBroadcast)->dispatch();
     }
 
     /**

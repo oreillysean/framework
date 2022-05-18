@@ -63,11 +63,11 @@ class PendingBroadcast
     }
 
     /**
-     * Handle the object's destruction.
+     * Dispatch the event.
      *
      * @return void
      */
-    public function __destruct()
+    public function dispatch()
     {
         $this->events->dispatch($this->event);
     }
